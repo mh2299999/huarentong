@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "eslint"
   },
@@ -29,7 +29,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "tailwindcss": "file:../../../../../tmp/tailwindcss-4.2.1.tgz",
+    "tailwindcss": "^4.2.1",
     "tsx": "^4.21.0",
     "typescript": "^5"
   },

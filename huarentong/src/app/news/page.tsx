@@ -2,15 +2,22 @@ import { prisma } from "@/lib/prisma";
 import NewsCard from "@/components/NewsCard";
 import { Newspaper } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "新闻资讯 - 华人通",
   description: "美国华人社区最新新闻资讯",
 };
 
 export default async function NewsPage() {
-  const news = await prisma.news.findMany({
-    orderBy: { createdAt: "desc" },
-  });
+  let news: Awaited<ReturnType<typeof prisma.news.findMany>> = [];
+  try {
+    news = await prisma.news.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  } catch {
+    // DB not available during build
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

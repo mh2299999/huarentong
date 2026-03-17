@@ -16,6 +16,8 @@ import {
   Zap,
 } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 const categoryIcons: Record<string, React.ReactNode> = {
   REAL_ESTATE: <Home className="w-6 h-6" />,
   SECOND_HAND: <ShoppingCart className="w-6 h-6" />,
@@ -25,20 +27,27 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 export default async function HomePage() {
-  const [latestNews, latestPosts] = await Promise.all([
-    prisma.news.findMany({
-      orderBy: { createdAt: "desc" },
-      take: 4,
-    }),
-    prisma.post.findMany({
-      where: { isActive: true },
-      include: {
-        user: { select: { id: true, name: true, email: true } },
-      },
-      orderBy: { createdAt: "desc" },
-      take: 6,
-    }),
-  ]);
+  let latestNews: Awaited<ReturnType<typeof prisma.news.findMany>> = [];
+  let latestPosts: Awaited<ReturnType<typeof prisma.post.findMany>> & { user: { id: string; name: string | null; email: string } }[] = [] as never;
+
+  try {
+    [latestNews, latestPosts] = await Promise.all([
+      prisma.news.findMany({
+        orderBy: { createdAt: "desc" },
+        take: 4,
+      }),
+      prisma.post.findMany({
+        where: { isActive: true },
+        include: {
+          user: { select: { id: true, name: true, email: true } },
+        },
+        orderBy: { createdAt: "desc" },
+        take: 6,
+      }),
+    ]);
+  } catch {
+    // DB not available during build
+  }
 
   return (
     <div>
