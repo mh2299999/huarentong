@@ -65,7 +65,7 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-              华人通
+              美国华人通
             </h1>
             <p className="text-lg md:text-xl text-red-100 mb-2">
               HuaRenTong — 美国华人生活服务平台
@@ -185,7 +185,7 @@ export default async function HomePage() {
       {/* Features */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-2xl font-bold text-gray-900 text-center mb-10">
-          为什么选择华人通？
+          为什么选择美国华人通？
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="text-center">

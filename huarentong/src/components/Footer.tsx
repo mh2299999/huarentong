@@ -11,7 +11,7 @@ export default function Footer() {
               <div className="w-8 h-8 hero-gradient rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold">华</span>
               </div>
-              <span className="text-lg font-bold text-white">华人通</span>
+              <span className="text-lg font-bold text-white">美国华人通</span>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               专为美国华人打造的一站式生活服务平台，连接华人社区，服务华人生活。
@@ -115,7 +115,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-10 pt-8 text-center">
           <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} 华人通 HuaRenTong. All rights reserved.
+            © {new Date().getFullYear()} 美国华人通 HuaRenTong. All rights reserved.
           </p>
         </div>
       </div>

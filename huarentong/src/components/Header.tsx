@@ -27,7 +27,7 @@ export default function Header() {
               <span className="text-white font-bold text-lg">华</span>
             </div>
             <span className="text-xl font-bold text-gray-900">
-              华人通
+              美国华人通
             </span>
           </Link>
 

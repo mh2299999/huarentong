@@ -5,7 +5,7 @@ import { Newspaper } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "新闻资讯 - 华人通",
+  title: "新闻资讯 - 美国华人通",
   description: "美国华人社区最新新闻资讯",
 };
 
