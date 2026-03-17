@@ -1,0 +1,4 @@
+{
+  "installCommand": "npm cache clean --force && npm install",
+  "framework": "nextjs"
+}
