@@ -28,7 +28,16 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export default async function HomePage() {
   let latestNews: Awaited<ReturnType<typeof prisma.news.findMany>> = [];
-  let latestPosts: Awaited<ReturnType<typeof prisma.post.findMany>> & { user: { id: string; name: string | null; email: string } }[] = [] as never;
+  let latestPosts: {
+    id: string;
+    title: string;
+    content: string;
+    category: string;
+    price: string | null;
+    location: string | null;
+    createdAt: Date;
+    user: { id: string; name: string | null; email: string };
+  }[] = [];
 
   try {
     [latestNews, latestPosts] = await Promise.all([
